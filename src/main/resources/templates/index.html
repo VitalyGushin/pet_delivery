@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Administrator page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    padding: 1px;
+}
+</style>
+
+</head>
+<body>
+		<div>
+			<h2>All orders:</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Date Added</th>
+						<th>Delivery Date</th>
+						<th>Customer</th>
+						<th>Address</th>
+						<th>Product</th>
+						<th>Phone</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="orders : ${orders}">
+						<td th:text="${orders.id}">Text ...</td>
+						<td th:text="${orders.added}">Text ...</td>
+						<td th:text="${orders.deliver}">Text ...</td>
+						<td th:text="${orders.customer}">Text ...</td>
+						<td th:text="${orders.address}">Text...</td>
+						<td th:text="${orders.product}">Text...</td>
+						<td th:text="${orders.phone}">Text...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<h2>Orders for delivery:</h2>
+		<form action="#" th:action="@{/}" th:object="${search}">
+		<div th:if="${not #lists.isEmpty(search)}">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Date added</th>
+						<th>Delivery date</th>
+						<th>Customer</th>
+						<th>Address</th>
+						<th>Product</th>
+						<th>Phone</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="search : ${search}">
+						<td th:text="${search.id}">Text ...</td>
+						<td th:text="${search.added}">Text ...</td>
+						<td th:text="${search.deliver}">Text ...</td>
+						<td th:text="${search.customer}">Text ...</td>
+						<td th:text="${search.address}">Text...</td>
+						<td th:text="${search.product}">Text...</td>
+						<td th:text="${search.phone}">Text...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</form>
+		
+	<div>
+	<h3>Postpone order:
+	<form action="/postpone" th:action="@{/postpone}" method="post">
+	<label>ID<input type="text" name="id" id="id"></input></label>
+	<input type="submit" value="OK"></input>
+	</form></h3>
+	</div>
+	
+	<div>
+	<h3>Order was delivered:
+	<form action="/delivere" th:action="@{/delivere}" method="post">
+	<label>ID<input type="text" name="id" id="id"></input></label>
+	<input type="submit" value="OK"></input>
+	</form></h3>
+	</div>
+		
+		<h2>Calling orders:</h2>
+		<form action="#" th:action="@{/}" th:object="${search2}">
+		<div th:if="${not #lists.isEmpty(search2)}">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Date added</th>
+						<th>Delivery date</th>
+						<th>Customer</th>
+						<th>Address</th>
+						<th>Product</th>
+						<th>Phone</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="search2 : ${search2}">
+						<td th:text="${search2.id}">Text ...</td>
+						<td th:text="${search2.added}">Text ...</td>
+						<td th:text="${search2.deliver}">Text ...</td>
+						<td th:text="${search2.customer}">Text ...</td>
+						<td th:text="${search2.address}">Text...</td>
+						<td th:text="${search2.product}">Text...</td>
+						<td th:text="${search2.phone}">Text...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</form>
+		
+	<div>
+	<h3>Set new date and time for order:</h3>
+	<form action="/change" th:action="@{/change}" method="post">
+	<label>ID<input type="text" name="id" id="id"></input></label>
+	<label>New delivery datetime<input type="text" name="deliver" id="deliver"></input></label>
+	<input type="submit" value="OK"></input>
+	</form>
+	</div>
+	
+	<div>
+	<h3>Add new order:</h3>
+	<form action="#" th:action="@{/}" method="post">
+	<label>Delivery datetime<input type="text" name="deliver" id="deliver"></input></label>
+	<label>Customer<input type="text" name="customer" id="customer"></input></label>
+	<label>Address<input type="text" name="address" id="address"></input></label>
+	<label>Product<input type="text" name="product" id="product"></input></label>
+	<label>Phone<input type="text" name="phone" id="phone"></input></label>
+	<input type="submit" value="Submit"></input>
+	</form>
+	</div>
+	
+</body>
+</html>

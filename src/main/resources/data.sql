@@ -1,0 +1,5 @@
+INSERT INTO orders SET added='2018-12-13 00:00:15', deliver='2018-12-14 19:00:00', customer="John Myrphy", address="Dusi Kovalchuk str. 250 ap.77", product="Hill's 5kg", phone="22-3-12", status=2;
+INSERT INTO orders SET added='2018-12-13 00:01:46', deliver='2018-12-31 21:00:00', customer="Billy Gates", address="Red Avenue str. 50 ap.85", product="Pedigree 13kg", phone="33-44-55", status=1;
+INSERT INTO orders SET added='2018-12-13 00:01:47', deliver='2018-12-31 20:00:00', customer="Sergey Brin", address="Dimitrova str. 18 ap.11", product="Purina Pro Plan 10kg", phone="44-55-66", status=0;
+INSERT INTO orders SET added='2018-12-13 00:01:48', deliver='2018-12-31 23:00:00', customer="Mark Zuckerberg", address="Frunze str. 76 ap.27", product="Royal Canin 15kg", phone="55-66-77", status=0;
+INSERT INTO orders SET added='2018-12-13 00:01:49', deliver='2018-12-31 22:00:00', customer="Larry Page", address="Gogol str. 27 ap.5", product="Chappi 2,5kg", phone="66-77-88", status=0;
